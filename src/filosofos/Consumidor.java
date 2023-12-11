@@ -27,8 +27,9 @@ public class Consumidor implements Runnable {
         while (true) {
             try {
                 gestor.comer(idFilosofo);
-                Thread.sleep(1000);
+                Thread.sleep( (int) (Math.random()*1000)+500);
                 gestor.pensar(idFilosofo);
+                Thread.sleep( (int) (Math.random()*1000)+500);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Consumidor.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -76,16 +76,18 @@ public class Gestor {
     public void accionComer(int posIzq, int posDer, int nFil) throws InterruptedException {
 
         if (palillos[posIzq] == true) {
-
+            palillos[posIzq] = false;
             if (palillos[posDer] == true) {
-                palillos[posIzq] = false;
                 palillos[posDer] = false;
                 System.out.println("Fil_" + nFil + "__COME");
             } else {
+                palillos[posIzq] = true;
                 wait();
+                accionComer(posIzq, posDer, nFil);
             }
         } else {
             wait();
+            accionComer(posIzq, posDer, nFil);
         }
     }
 
